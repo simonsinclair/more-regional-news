@@ -1,4 +1,6 @@
-Page Terminator
-===============
+‘More regional news’
+====================
 
-Page Terminator module prototype.
+A page-terminating carousel component for Connected Stories.
+
+http://simonsinclair.github.io/page-terminator/
