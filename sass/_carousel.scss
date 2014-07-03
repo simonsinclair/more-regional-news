@@ -1,10 +1,51 @@
 // _carousel.scss
 //
 // SMARTPHONE PORTRAIT
-// height: 250px
+// height: 248px
 //
 // TABLET PORTRAIT
 // height: 284px
 //
 
-.carousel {}
+.carousel {
+	height: 248px;
+	overflow: hidden;
+
+	@include at(tablet) {
+		height: 284px;
+	}
+}
+	// Blinkers
+	.carousel__blinker {}
+	.carousel__blinker--left {}
+	.carousel__blinker--right {}
+
+	// Controls
+	.carousel__controls {}
+	.carousel__controls--left {}
+	.carousel__controls--right {}
+	
+	// Title
+	.carousel__title {
+		margin: 0;
+		padding: 0;
+	}
+
+	// Items
+	.carousel__items {
+		
+		// All unordered lists
+		ul {
+			@extend .clearfix;
+		}
+
+		// All list-items
+		li {
+			float: left;
+			
+			// Nested unordered lists
+			& > ul {
+
+			}
+		}
+	}
