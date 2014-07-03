@@ -7,11 +7,11 @@
 // height: 284px
 //
 
-$l1: 10;
-$l2: 20;
+$l1:       10;
+$l2:       20;
 $tap-size: 44px;
-$red: #CB0000;
-$grey: #767676;
+$red:      #CB0000;
+$grey:     #767676;
 
 .carousel {
 	background-color: #FFF;
@@ -25,14 +25,15 @@ $grey: #767676;
 	// Blinkers
 	.carousel__blinker {
 		position: absolute;
+			top: 42px;
 		z-index: $l1;
 	}
 	.carousel__blinker--left {
-		top: 0; left: 0;
+		left: 0;
 	}
 	.carousel__blinker--right {
 		background-color: rgba(120,120,120,0.8);
-		top: 0; right: 0; bottom: 0;
+		right: 0; bottom: 0;
 		width: $tap-size;
 	}
 
@@ -77,7 +78,8 @@ $grey: #767676;
 		width: 3000px;
 
 		> li {
-			
+			border-left: 1px solid $grey;
+
 			&:first-child {
 				margin-left: 16px;
 			}
@@ -90,6 +92,9 @@ $grey: #767676;
 			font-weight: bold;
 		}
 	}
+		.item__caption {
+			padding: 0 8px;
+		}
 		.item__footer {
 			@extend .nav;
 			
