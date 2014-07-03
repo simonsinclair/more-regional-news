@@ -5,9 +5,16 @@
 
 (function(w, $, undefined) {
 
-	function init() {
-		console.log('DOM ready!');
-	}
+	var carousel = {
+		init: function() {
+			this.bindEvts();
+		},
+		bindEvts: function() {
 
-	$(init);
+		}
+	};
+
+	$(function() {
+		carousel.init();
+	});
 })(this, jQuery);
