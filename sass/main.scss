@@ -1,6 +1,19 @@
 // main.scss
 //
 
+$tablet: 768px;
+
+@mixin at($media) {
+	@if $media == tablet {
+		@media (min-width: $tablet) {
+			@content
+		}
+	}
+}
+
+// STYLE 
+//
+
 *,
 *:before,
 *:after {
@@ -32,10 +45,18 @@ h1 {
 .page {
 	margin: 0 auto;
 	padding: 0 8px;
-	max-width: 960px;
+	max-width: 960px + 8;
+
+	@include at(tablet) {
+		padding: 0 16px;
+	}
 }
 	.page--home {
 		padding-top: 24px;
+	}
+	.page--smartphone-portrait,
+	.page--tablet-portrait {
+		padding: 0;
 	}
 	.page--smartphone-portrait {
 		width: 320px;
