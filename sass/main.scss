@@ -3,6 +3,18 @@
 
 $tablet: 768px;
 
+// Utility
+//
+
+.clearfix {
+
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
 @mixin at($media) {
 	@if $media == tablet {
 		@media (min-width: $tablet) {
@@ -35,8 +47,16 @@ body {
 a {
 	text-decoration: none;
 }
+h1,
+h2 {
+	font-weight: normal;
+}
 h1 {
 	letter-spacing: -1.5px;
+}
+h2 {
+	font-size: 26px;
+	letter-spacing: -1px;
 }
 
 // Page
@@ -80,16 +100,16 @@ h1 {
 .flat {
 	display: block;
 }
+
 @import 'carousel';
 
-// Utility
-//
+.nav {
+	@extend .clearfix;
 
-.clearfix {
+	list-style: none;
+	padding-left: 0;
 
-	&:after {
-		content: "";
-		display: table;
-		clear: both;
+	li {
+		float: left;
 	}
 }

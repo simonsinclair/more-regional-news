@@ -7,45 +7,102 @@
 // height: 284px
 //
 
+$l1: 10;
+$l2: 20;
+$tap-size: 44px;
+$red: #CB0000;
+$grey: #767676;
+
 .carousel {
+	background-color: #FFF;
 	height: 248px;
-	overflow: hidden;
+	position: relative;
 
 	@include at(tablet) {
 		height: 284px;
 	}
 }
 	// Blinkers
-	.carousel__blinker {}
-	.carousel__blinker--left {}
-	.carousel__blinker--right {}
+	.carousel__blinker {
+		position: absolute;
+		z-index: $l1;
+	}
+	.carousel__blinker--left {
+		top: 0; left: 0;
+	}
+	.carousel__blinker--right {
+		background-color: rgba(120,120,120,0.8);
+		top: 0; right: 0; bottom: 0;
+		width: $tap-size;
+	}
 
 	// Controls
-	.carousel__controls {}
+	.carousel__controls {
+		@extend .nav;
+
+		margin-top: -$tap-size / 2;
+		margin-bottom: 0;
+		position: absolute;
+			top: 50%; right: 0;
+		width: $tap-size * 2;
+		z-index: $l2;
+
+		li {}
+		a {
+			background-color: #EEE;
+			display: block;
+			height: $tap-size;
+			width: $tap-size;
+		}
+	}
 	.carousel__controls--left {}
 	.carousel__controls--right {}
 	
 	// Title
 	.carousel__title {
+		line-height: 1;
 		margin: 0;
-		padding: 0;
+		padding-left: 16px;
+	}
+	
+	// Viewport
+	.carousel__viewport {
+		overflow-x: scroll; // TEMP
 	}
 
 	// Items
 	.carousel__items {
-		
-		// All unordered lists
-		ul {
-			@extend .clearfix;
-		}
+		@extend .nav;
 
-		// All list-items
-		li {
-			float: left;
+		width: 3000px;
+
+		> li {
 			
-			// Nested unordered lists
-			& > ul {
-
+			&:first-child {
+				margin-left: 16px;
 			}
 		}
+		
+		img {
+			display: block;
+		}
+		p {
+			font-weight: bold;
+		}
 	}
+		.item__footer {
+			@extend .nav;
+			
+			color: $grey;
+			font-size: 14px;
+			line-height: 1;
+		}
+		.item__timestamp {
+			border-right: 1px solid $grey;
+			padding-left: 0;
+			padding-right: 6px;
+		}
+		.item__region {
+			color: $red;
+			padding-left: 6px;
+		}
