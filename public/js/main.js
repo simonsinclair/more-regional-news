@@ -41,7 +41,7 @@
 				return;
 			}
 
-			// Calculate new items x position and ADD
+			// Calculate new carriage x position and ADD
 			// it to the current translate3d x-value,
 			// then update the itemsPos tracking var.
 			var newXPos = carousel.itemsPos + carousel.itemWidth;
@@ -55,7 +55,7 @@
 				return;
 			}
 
-			// Calculate new items x position and SUBTRACT
+			// Calculate new carriage x position and SUBTRACT
 			// it from the current translate3d x-value,
 			// then update the itemsPos tracking var.
 			var newXPos = carousel.itemsPos - carousel.itemWidth;
@@ -69,7 +69,7 @@
 				$.get('tpl/carousel-items.tpl')
 			).then(function(data, tpl) {
 
-				// When both $.gets are successful,
+				// When both $.get's are successful,
 				// render carousel items template
 				// and insert it in to the DOM.
 				var rendered = M.render(tpl[0], data[0]);
