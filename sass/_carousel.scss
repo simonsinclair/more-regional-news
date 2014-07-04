@@ -13,7 +13,7 @@
 $l1:       10;
 $l2:       20;
 
-$tap-size: 50px;
+$tap-size: 52px;
 
 $red:      #CB0000;
 $grey:     #767676;
@@ -32,7 +32,6 @@ $grey:     #767676;
 		left: 0;
 	}
 	.carousel__blinker--right {
-		background-color: rgba(120,120,120,0.8);
 		right: 0; bottom: 0;
 		width: $tap-size;
 	}
@@ -41,10 +40,12 @@ $grey:     #767676;
 	.carousel__controls {
 		@extend .nav;
 
-		margin-top: -$tap-size / 2;
 		margin-bottom: 0;
 		position: absolute;
-			top: 50%; right: 0;
+			top: 64px; right: 16px;
+			@include at(tablet) {
+				top: 60px;
+			}
 		width: $tap-size * 2;
 		z-index: $l2;
 
@@ -63,8 +64,13 @@ $grey:     #767676;
 			}
 		}
 	}
-	.carousel__controls--left {}
-	.carousel__controls--right {}
+	.carousel__left {}
+	.carousel__right {
+
+		a {
+			border-left: 1px solid #999;
+		}
+	}
 	
 	// Title
 	.carousel__title {
@@ -87,6 +93,10 @@ $grey:     #767676;
 
 		> li {
 			border-left: 1px solid $grey;
+			width: 236px;
+			@include at(tablet) {
+				width: 228px;
+			}
 
 			&:first-child {
 				margin-left: 16px;
@@ -95,7 +105,7 @@ $grey:     #767676;
 		
 		img {
 			display: block;
-			width: 236px;
+			max-width: 100%;
 		}
 		p {
 			font-weight: bold;
