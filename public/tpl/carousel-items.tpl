@@ -1,11 +1,11 @@
 {{#carousel-items}}
 	<li>
-		<img src="img/carousel/item_01.jpg" alt="" width="" height="" />
+		<img src="{{img}}" alt="" width="" height="" />
 		<div class="item__caption">
 			<p>{{title}}</p>
 			<ul class="item__footer">
-				<li class="item__timestamp">6h ago</li>
-				<li class="item__region">Coventry &amp; Warwickshire</li>
+				<li class="item__timestamp">{{timestamp}}</li>
+				<li class="item__region">{{region}}</li>
 			</ul>
 		</div>
 	</li>
