@@ -22,29 +22,20 @@ $grey:     #767676;
 	background-color: #FFF;
 	position: relative;
 }
-	// Blinkers
-	.carousel__blinker {
-		position: absolute;
-			top: 42px;
-		z-index: $l1;
-	}
-	.carousel__blinker--left {
-		left: 0;
-	}
-	.carousel__blinker--right {
-		right: 0; bottom: 0;
-		width: $tap-size;
-	}
 
 	// Controls
 	.carousel__controls {
 		@extend .nav;
-
+		
+		display: none;
+		@include at(tablet) {
+			display: block;
+		}
 		margin-bottom: 0;
 		position: absolute;
-			top: 64px; right: 16px;
+			top: 108px; right: 16px;
 			@include at(tablet) {
-				top: 60px;
+				top: 102px;
 			}
 		width: $tap-size * 2;
 		z-index: $l2;
@@ -98,6 +89,8 @@ $grey:     #767676;
 		@extend .nav;
 		
 		margin-bottom: 0;
+		@include prefix(transform, translate3d(0px, 0, 0));
+		transition: -webkit-transform 350ms cubic-bezier(0.215, 0.61, 0.355, 1);
 		width: 2000px;
 
 		> li {
@@ -138,10 +131,8 @@ $grey:     #767676;
 				.item__timestamp {
 					border-right: 1px solid $grey;
 					margin-right: 6px;
-					padding-left: 0;
 					padding-right: 6px;
 				}
 				.item__region {
 					color: $red;
-					// padding-left: 6px;
 				}
