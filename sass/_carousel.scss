@@ -51,7 +51,7 @@ $grey:     #767676;
 
 		li {}
 		a {
-			background-color: rgba(255,255,255,0.8);
+			background: rgba(255,255,255,0.8) url('../img/chevron-sprite.png') 15px 12px no-repeat;
 			display: block;
 			height: $tap-size;
 			width: $tap-size;
@@ -60,11 +60,20 @@ $grey:     #767676;
 				background-color: rgba(255,255,255,0.95);
 			}
 			&:active {
-				background-color: rgba(255,255,255,1);;
+				background-color: rgba(255,255,255,1);
 			}
 		}
 	}
-	.carousel__left {}
+	.carousel__left {
+
+		a {
+			background-position: 13px -75px;
+
+			&:hover {
+
+			}
+		}
+	}
 	.carousel__right {
 
 		a {
@@ -115,7 +124,7 @@ $grey:     #767676;
 			padding: 0 8px;
 
 			p {
-				margin: 10px 0;
+				margin: 10px 0 8px;
 			}
 		}
 			.item__footer {
@@ -123,15 +132,16 @@ $grey:     #767676;
 				
 				color: $grey;
 				font-size: 14px;
-				line-height: 1;
+				line-height: 1.3;
 				padding-bottom: 12px;
 			}
 				.item__timestamp {
 					border-right: 1px solid $grey;
+					margin-right: 6px;
 					padding-left: 0;
 					padding-right: 6px;
 				}
 				.item__region {
 					color: $red;
-					padding-left: 6px;
+					// padding-left: 6px;
 				}
