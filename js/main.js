@@ -7,32 +7,89 @@
 
 	// Carousel object
 	var carousel = {
-		init: function(carouselId) {
-			this.carousel      = $(carouselId);
+		config: {
+			compact: {
+				scrollBy: 1
+			},
+			tablet: {
+				scrollBy: 3
+			}
+		},
 
-			this.bindEvts();
-			this.populate();
+		init: function(carouselId) {
+			carousel.$self    = $(carouselId);
+			carousel.isLoaded = false;
+			carousel.itemsPos = 0;
+
+			carousel.numItems   = 0;
+			carousel.itemWidth  = 0;
+			carousel.totalWidth = 0;
+
+			carousel.bindEvts();
+			carousel.load();
 		},
+
 		bindEvts: function() {
-			$('#js-carousel__left', this.carousel).on('click', this.pageLeft);
-			$('#js-carousel__right', this.carousel).on('click', this.pageRight);			
+			$('#js-carousel__left', carousel.$self).on('click', carousel.pageLeft);
+			$('#js-carousel__right', carousel.$self).on('click', carousel.pageRight);
+			$.subscribe('loaded', carousel.onLoaded);		
 		},
+
 		pageLeft: function(e) {
 			e.preventDefault();
-			console.log('pageLeft');
+			if(!carousel.isLoaded) {
+				return;
+			}
+
+			// Calculate new items x position and ADD
+			// it to the current translate3d x-value,
+			// then update the itemsPos tracking var.
+			var newXPos = carousel.itemsPos + carousel.itemWidth;
+			$('#js-carousel__items', carousel.$self).css('-webkit-transform', 'translate3d(' + newXPos + 'px, 0, 0)');
+			carousel.itemsPos = newXPos;
 		},
+
 		pageRight: function(e) {
 			e.preventDefault();
-			console.log('pageRight');
+			if(!carousel.isLoaded) {
+				return;
+			}
+
+			// Calculate new items x position and SUBTRACT
+			// it from the current translate3d x-value,
+			// then update the itemsPos tracking var.
+			var newXPos = carousel.itemsPos - carousel.itemWidth;
+			$('#js-carousel__items', carousel.$self).css('-webkit-transform', 'translate3d(' + newXPos + 'px, 0, 0)');
+			carousel.itemsPos = newXPos;
 		},
-		populate: function() {
+
+		load: function() {
 			$.when(
 				$.get('carousel-items.json'),
 				$.get('tpl/carousel-items.tpl')
 			).then(function(data, tpl) {
+
+				// When both $.gets are successful,
+				// render carousel items template
+				// and insert it in to the DOM.
 				var rendered = M.render(tpl[0], data[0]);
-				$('#js-carousel__items', this.carousel).html(rendered);
+				$('#js-carousel__items', carousel.$self).html(rendered);
+
+				// Set number of loaded carousel items
+				// and publish the loaded event.
+				carousel.numItems = data[0].carouselItems.length;
+				$.publish('loaded');
 			});
+		},
+
+		onLoaded: function() {
+			carousel.isLoaded = true;
+			carousel.calculateWidths();
+		},
+
+		calculateWidths: function() {
+			carousel.itemWidth  = $('#js-carousel__items li:first-child', carousel.$self).outerWidth();
+			carousel.totalWidth = carousel.itemWidth * carousel.numItems;
 		}
 	};
 

@@ -1,4 +1,4 @@
-{{#carousel-items}}
+{{#carouselItems}}
 	<li>
 		<img src="{{img}}" alt="" width="" height="" />
 		<div class="item__caption">
@@ -9,4 +9,4 @@
 			</ul>
 		</div>
 	</li>
-{{/carousel-items}}
+{{/carouselItems}}
