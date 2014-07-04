@@ -22,95 +22,16 @@
 
 			<div class="carousel__blinker carousel__blinker--right">
 				<ul class="carousel__controls">
-					<li class="carousel__left"><a href="#">L</a></li>
-					<li class="carousel__right"><a href="#">R</a></li>
+					<li class="carousel__left"><a id="js-carousel__left" href="#"></a></li>
+					<li class="carousel__right"><a id="js-carousel__right" href="#"></a></li>
 				</ul>
 			</div>
 
 			<h2 class="carousel__title">More regional news</h2>
 
 			<div class="carousel__viewport">
-				<ul class="carousel__items">
-					<li>
-						<img src="img/carousel/item_01.jpg" alt="" width="270" height="" />
-						<div class="item__caption">
-							<p>Dead relative hoax calls</p>
-							<ul class="item__footer">
-								<li class="item__timestamp">6h ago</li>
-								<li class="item__region">Coventry &amp; Warwickshire</li>
-							</ul>
-						</div>
-					</li>
-					<li>
-						<img src="img/carousel/item_01.jpg" alt="" width="270" height="" />
-						<div class="item__caption">
-							<p>Dead relative hoax calls</p>
-							<ul class="item__footer">
-								<li class="item__timestamp">6h ago</li>
-								<li class="item__region">Coventry &amp; Warwickshire</li>
-							</ul>
-						</div>
-					</li>
-					<li>
-						<img src="img/carousel/item_01.jpg" alt="" width="270" height="" />
-						<div class="item__caption">
-							<p>Dead relative hoax calls</p>
-							<ul class="item__footer">
-								<li class="item__timestamp">6h ago</li>
-								<li class="item__region">Coventry &amp; Warwickshire</li>
-							</ul>
-						</div>
-					</li>
-					<li>
-						<img src="img/carousel/item_01.jpg" alt="" width="270" height="" />
-						<div class="item__caption">
-							<p>Dead relative hoax calls</p>
-							<ul class="item__footer">
-								<li class="item__timestamp">6h ago</li>
-								<li class="item__region">Coventry &amp; Warwickshire</li>
-							</ul>
-						</div>
-					</li>
-					<li>
-						<img src="img/carousel/item_01.jpg" alt="" width="270" height="" />
-						<div class="item__caption">
-							<p>Dead relative hoax calls</p>
-							<ul class="item__footer">
-								<li class="item__timestamp">6h ago</li>
-								<li class="item__region">Coventry &amp; Warwickshire</li>
-							</ul>
-						</div>
-					</li>
-					<li>
-						<img src="img/carousel/item_01.jpg" alt="" width="270" height="" />
-						<div class="item__caption">
-							<p>Dead relative hoax calls</p>
-							<ul class="item__footer">
-								<li class="item__timestamp">6h ago</li>
-								<li class="item__region">Coventry &amp; Warwickshire</li>
-							</ul>
-						</div>
-					</li>
-					<li>
-						<img src="img/carousel/item_01.jpg" alt="" width="270" height="" />
-						<div class="item__caption">
-							<p>Dead relative hoax calls</p>
-							<ul class="item__footer">
-								<li class="item__timestamp">6h ago</li>
-								<li class="item__region">Coventry &amp; Warwickshire</li>
-							</ul>
-						</div>
-					</li>
-					<li>
-						<img src="img/carousel/item_01.jpg" alt="" width="270" height="" />
-						<div class="item__caption">
-							<p>Dead relative hoax calls</p>
-							<ul class="item__footer">
-								<li class="item__timestamp">6h ago</li>
-								<li class="item__region">Coventry &amp; Warwickshire</li>
-							</ul>
-						</div>
-					</li>
+				<ul class="carousel__items" id="js-carousel__items">
+					<!-- DYNAMIC -->
 				</ul>
 			</div>
 		</div>
@@ -119,6 +40,7 @@
 	</div>
 
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="bower_components/mustache.js/mustache.js"></script>
 	<script src="js/main.js"></script>
 </body>
 </html>
