@@ -14,7 +14,16 @@
 			this.populate();
 		},
 		bindEvts: function() {
-
+			$('#js-carousel__left', this.carousel).on('click', this.pageLeft);
+			$('#js-carousel__right', this.carousel).on('click', this.pageRight);			
+		},
+		pageLeft: function(e) {
+			e.preventDefault();
+			console.log('pageLeft');
+		},
+		pageRight: function(e) {
+			e.preventDefault();
+			console.log('pageRight');
 		},
 		populate: function() {
 			$.when(
