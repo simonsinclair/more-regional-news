@@ -2,28 +2,25 @@
 //
 // SMARTPHONE PORTRAIT
 // height: 248px
+// img: 235x132
 //
 // TABLET PORTRAIT
 // height: 284px
+// img: 235x132
 //
 
 // z-index levels
 $l1:       10;
 $l2:       20;
 
-$tap-size: 44px;
+$tap-size: 50px;
 
 $red:      #CB0000;
 $grey:     #767676;
 
 .carousel {
 	background-color: #FFF;
-	height: 248px;
 	position: relative;
-
-	@include at(tablet) {
-		height: 284px;
-	}
 }
 	// Blinkers
 	.carousel__blinker {
@@ -53,10 +50,17 @@ $grey:     #767676;
 
 		li {}
 		a {
-			background-color: #EEE;
+			background-color: rgba(255,255,255,0.8);
 			display: block;
 			height: $tap-size;
 			width: $tap-size;
+
+			&:hover {
+				background-color: rgba(255,255,255,0.95);
+			}
+			&:active {
+				background-color: rgba(255,255,255,1);;
+			}
 		}
 	}
 	.carousel__controls--left {}
@@ -71,14 +75,15 @@ $grey:     #767676;
 	
 	// Viewport
 	.carousel__viewport {
-		overflow-x: scroll; // TEMP
+		overflow: hidden;
 	}
 
 	// Items
 	.carousel__items {
 		@extend .nav;
-
-		width: 3000px;
+		
+		margin-bottom: 0;
+		width: 2000px;
 
 		> li {
 			border-left: 1px solid $grey;
@@ -98,20 +103,25 @@ $grey:     #767676;
 	}
 		.item__caption {
 			padding: 0 8px;
+
+			p {
+				margin: 10px 0;
+			}
 		}
-		.item__footer {
-			@extend .nav;
-			
-			color: $grey;
-			font-size: 14px;
-			line-height: 1;
-		}
-		.item__timestamp {
-			border-right: 1px solid $grey;
-			padding-left: 0;
-			padding-right: 6px;
-		}
-		.item__region {
-			color: $red;
-			padding-left: 6px;
-		}
+			.item__footer {
+				@extend .nav;
+				
+				color: $grey;
+				font-size: 14px;
+				line-height: 1;
+				padding-bottom: 12px;
+			}
+				.item__timestamp {
+					border-right: 1px solid $grey;
+					padding-left: 0;
+					padding-right: 6px;
+				}
+				.item__region {
+					color: $red;
+					padding-left: 6px;
+				}
