@@ -1,6 +1,6 @@
 {{#carousel-items}}
 	<li>
-		<img src="img/carousel/item_01.jpg" alt="" width="270" height="" />
+		<img src="img/carousel/item_01.jpg" alt="" width="" height="" />
 		<div class="item__caption">
 			<p>{{title}}</p>
 			<ul class="item__footer">
