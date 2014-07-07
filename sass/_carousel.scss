@@ -79,11 +79,6 @@ $grey:     #767676;
 		padding-left: 16px;
 	}
 	
-	// Viewport
-	.carousel__viewport {
-		overflow: hidden;
-	}
-
 	// Items
 	.carousel__items {
 		@extend .nav;
