@@ -26,17 +26,17 @@
 			carousel.carriageWidth = 0;
 
 			carousel.bindEvts();
-			carousel.deactivateCtrl('#js-carousel__left');
+			carousel.deactivateCtrl('#js-carousel__previous');
 			carousel.loadItems();
 		},
 
 		bindEvts: function() {
-			$('#js-carousel__left', carousel.$elem).on('click', carousel.pageLeft);
-			$('#js-carousel__right', carousel.$elem).on('click', carousel.pageRight);
-			$.subscribe('itemsLoaded', carousel.onItemsLoaded);		
+			$('#js-carousel__previous', carousel.$elem).on('click', carousel.previous);
+			$('#js-carousel__next', carousel.$elem).on('click', carousel.next);
+			$.subscribe('itemsLoaded', carousel.onItemsLoaded);
 		},
 
-		pageLeft: function(e) {
+		previous: function(e) {
 			e.preventDefault();
 
 			// Don't do anything if the carousel hasn't loaded
@@ -57,7 +57,7 @@
 			carousel.carriagePos = newCarriageXPos;
 		},
 
-		pageRight: function(e) {
+		next: function(e) {
 			e.preventDefault();
 
 			// Don't do anything if the carousel hasn't loaded
@@ -94,19 +94,19 @@
 			var isAtEnd   = xPosRight >= carousel.carriageWidth;
 
 			// By default, assume we're in the middle
-			carousel.activateCtrl('#js-carousel__left');
-			carousel.activateCtrl('#js-carousel__right');
+			carousel.activateCtrl('#js-carousel__previous');
+			carousel.activateCtrl('#js-carousel__next');
 
 			// Else, check whether we're at the beginning
 			// or the end, and set ctrl state accordingly.
 			if(isAtStart) {
-				carousel.deactivateCtrl('#js-carousel__left');
-				carousel.activateCtrl('#js-carousel__right');
+				carousel.deactivateCtrl('#js-carousel__previous');
+				carousel.activateCtrl('#js-carousel__next');
 			}
 
 			if(isAtEnd) {
-				carousel.deactivateCtrl('#js-carousel__right');
-				carousel.activateCtrl('#js-carousel__left');
+				carousel.deactivateCtrl('#js-carousel__next');
+				carousel.activateCtrl('#js-carousel__previous');
 			}
 		},
 

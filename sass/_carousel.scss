@@ -54,17 +54,17 @@ $light-grey: #DCDCDC;
 			}
 		}
 	}
-		.carousel__left {
+		.carousel__previous {
 			margin-right: 1px;
 			
 			a {
 				background-position: 13px -76px;
 			}
 		}
-		.carousel__right {}
+		.carousel__next {}
 
-		.carousel__left,
-		.carousel__right {
+		.carousel__previous,
+		.carousel__next {
 			
 			a {
 				opacity: 1;
