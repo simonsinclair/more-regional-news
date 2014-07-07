@@ -17,13 +17,13 @@
 		},
 
 		init: function(carouselId) {
-			carousel.$self    = $(carouselId);
-			carousel.isLoaded = false;
-			carousel.itemsPos = 0;
+			carousel.$self       = $(carouselId);
+			carousel.isLoaded    = false;
+			carousel.carriagePos = 0;
 
-			carousel.numItems   = 0;
-			carousel.itemWidth  = 0;
-			carousel.totalWidth = 0;
+			carousel.numItems      = 0;
+			carousel.itemWidth     = 0;
+			carousel.carriageWidth = 0;
 
 			carousel.bindEvts();
 			carousel.load();
@@ -43,10 +43,10 @@
 
 			// Calculate new carriage x position and ADD
 			// it to the current translate3d x-value,
-			// then update the itemsPos tracking var.
-			var newXPos = carousel.itemsPos + carousel.itemWidth;
-			$('#js-carousel__items', carousel.$self).css('-webkit-transform', 'translate3d(' + newXPos + 'px, 0, 0)');
-			carousel.itemsPos = newXPos;
+			// then update the carriagePos tracking var.
+			var newXPos = carousel.carriagePos + carousel.itemWidth;
+			$('#js-carousel__carriage', carousel.$self).css('-webkit-transform', 'translate3d(' + newXPos + 'px, 0, 0)');
+			carousel.carriagePos = newXPos;
 		},
 
 		pageRight: function(e) {
@@ -57,10 +57,10 @@
 
 			// Calculate new carriage x position and SUBTRACT
 			// it from the current translate3d x-value,
-			// then update the itemsPos tracking var.
-			var newXPos = carousel.itemsPos - carousel.itemWidth;
-			$('#js-carousel__items', carousel.$self).css('-webkit-transform', 'translate3d(' + newXPos + 'px, 0, 0)');
-			carousel.itemsPos = newXPos;
+			// then update the carriagePos tracking var.
+			var newXPos = carousel.carriagePos - carousel.itemWidth;
+			$('#js-carousel__carriage', carousel.$self).css('-webkit-transform', 'translate3d(' + newXPos + 'px, 0, 0)');
+			carousel.carriagePos = newXPos;
 		},
 
 		load: function() {
@@ -73,7 +73,7 @@
 				// render carousel items template
 				// and insert it in to the DOM.
 				var rendered = M.render(tpl[0], data[0]);
-				$('#js-carousel__items', carousel.$self).html(rendered);
+				$('#js-carousel__carriage', carousel.$self).html(rendered);
 
 				// Set number of loaded carousel items
 				// and publish the loaded event.
@@ -88,8 +88,8 @@
 		},
 
 		calculateWidths: function() {
-			carousel.itemWidth  = $('#js-carousel__items li:first-child', carousel.$self).outerWidth();
-			carousel.totalWidth = carousel.itemWidth * carousel.numItems;
+			carousel.itemWidth  = $('#js-carousel__carriage li:first-child', carousel.$self).outerWidth();
+			carousel.carriageWidth = carousel.itemWidth * carousel.numItems;
 		}
 	};
 
