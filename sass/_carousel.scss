@@ -129,9 +129,9 @@ $grey:     #767676;
 				padding-bottom: 12px;
 			}
 				.item__timestamp {
-					border-right: 1px solid $grey;
-					margin-right: 6px;
-					padding-right: 6px;
+					background: url('../img/timestamp-separator.gif') right center no-repeat;
+					margin-right: 8px;
+					padding-right: 8px;
 				}
 				.item__region {
 					color: $red;
