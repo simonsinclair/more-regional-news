@@ -41,7 +41,27 @@
 
 		loadItems: function(numItems) {
 			this.numItems = numItems;
-			// ...
+
+			$.when(
+
+				$.get('carousel-items.json'),
+				$.get('tpl/core-mrn.tpl')
+
+			).then(function(itemData, tpl) {
+
+				// To fix 'this'
+				// var rendered = this.renderNumItems(numItems, tpl, itemData);
+				var rendered = M.render(tpl[0], itemData[0]);
+				$('#js-mrn').html(rendered);
+
+			});
+		},
+
+		renderNumItems: function(numItems, tpl, itemData) {
+			var rendered = M.render(tpl[0], itemData[0]);
+			// ...Set itemData to numItems.
+
+			return rendered;
 		},
 
 		addItem: function(e) {
