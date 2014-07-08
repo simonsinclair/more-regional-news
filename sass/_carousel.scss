@@ -143,21 +143,3 @@ $light-grey: #DCDCDC;
 				.item__region {
 					color: $brand;
 				}
-
-	// Scroll
-	.carousel__scroll {
-		background-color: $light-grey;
-		@include at(tablet) {
-			display: none;
-		}
-		margin-top: 12px;
-		position: relative;
-		height: 8px;
-	}
-		.carousel__bar {
-			background-color: $brand;
-			height: 4px;
-			position: absolute;
-				top: 2px; left: 0;
-			width: 16.666%;
-		}
