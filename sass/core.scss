@@ -24,10 +24,14 @@
 			box-sizing: border-box;
 }
 
-html {}
+html {
+	height: 100%;
+}
 body {
 	color: #333;
 	line-height: 1.5;
+	position: relative;
+	min-height: 100%;
 }
 	.canvas {
 		background-image: url('../img/body-bg.png');
@@ -56,16 +60,54 @@ h2 {
 	padding: 0 8px;
 	max-width: 960px + 8;
 }
-	.page--smartphone-portrait,
-	.page--tablet-portrait {
-		padding: 0;
+	.page--feature {
+		width: 240px;
 	}
-	.page--smartphone-portrait {
+	.page--smart-portrait {
 		width: 320px;
 	}
 	.page--tablet-portrait {
 		width: 768px;
 	}
+	.page--desktop {
+		width: 1024px;
+	}
+
+.config {
+	@extend .clearfix;
+	
+	position: absolute;
+		top: 0; right: 32px;
+
+	ul {
+		@extend .nav;
+		
+		float: left;
+		margin: 0;
+	}
+		li {
+			
+			&:first-child {
+				
+				a {
+					border-right: none;
+				}
+			}
+		}
+		a {
+			background-color: #F0F0F0;
+			border: 1px solid #CCC;
+			border-top: none;
+			display: block;
+			font-size: 21px;
+			line-height: 1;
+			padding: 6px 10px;
+			
+			&:hover {
+				background-color: #FFF;
+			}
+		}
+}
 
 // Components
 //
