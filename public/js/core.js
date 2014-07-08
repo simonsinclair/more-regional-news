@@ -25,9 +25,13 @@
 		init: function() {
 			this.device   = $('#js-mrn').data('device');
 			this.$config  = $('#js-config');
+			this.numItems = 0;
 
 			this.bindEvts();
-			this.loadItems();
+
+			// Load the correct number of items in to the
+			// module using device configuration values.
+			this.loadItems( this.config[this.device].numItems );
 		},
 
 		bindEvts: function() {
@@ -35,20 +39,19 @@
 			$('.remove', this.$config).on('click', $.proxy(this.removeItem, this));
 		},
 
-		loadItems: function() {
-
+		loadItems: function(numItems) {
+			this.numItems = numItems;
+			// ...
 		},
 
 		addItem: function(e) {
 			e.preventDefault();
 			// ...
-			console.log(e);
 		},
 
 		removeItem: function(e) {
 			e.preventDefault();
 			// ...
-			console.log(e);
 		}
 
 	};
