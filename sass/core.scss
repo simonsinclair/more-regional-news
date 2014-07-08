@@ -57,9 +57,8 @@ h2 {
 
 .page {
 	background-color: #FFF;
-	min-height: 640px; // TEMP
 	margin: 0 auto;
-	padding: 0 8px;
+	padding: 128px 8px 0;
 	max-width: 960px + 8;
 }
 	.page--feature {
@@ -69,11 +68,13 @@ h2 {
 		width: 320px + 8;
 	}
 	.page--tablet-portrait {
-		padding: 0 16px;
+		padding-right: 16px;
+		padding-left: 16px;
 		width: 768px + 16;
 	}
 	.page--desktop {
-		padding: 0 16px;
+		padding-right: 16px;
+		padding-left: 16px;
 		width: 1024px + 16;
 	}
 
@@ -113,17 +114,26 @@ h2 {
 			}
 		}
 }
-.config--device {
-	left: 32px;
-	
-	a {
-		font-size: 16px;
+	.config--device {
+		left: 32px;
 		
-		&.active {
-			background-color: #FFF;
+		a {
+			font-size: 16px;
+			
+			&.active {
+				background-color: #FFF;
+			}
 		}
 	}
+
+// More Regional News
+.mrn {
+	
+	ul {
+		@extend .nav;
+	}
 }
+	.mrn__title {}
 
 // Components
 //
