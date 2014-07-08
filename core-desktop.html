@@ -13,17 +13,27 @@
 	<link rel="stylesheet" href="bower_components/normalize.css/normalize.css" />
 	<link rel="stylesheet" href="css/core.css" />
 </head>
-<body>
-	<div class="config" id-"js-config">
-		<p class="config__title">Items</p>
+<body class="canvas">
+	<div class="config" id="js-config">
 		<ul>
-			<li><a href="#">Add &plus;</a></li>
-			<li><a href="#">Remove &minus;</a></li>
+			<li><a class="add" href="#">&plus;</a></li>
+			<li><a class="remove" href="#">&minus;</a></li>
 		</ul>
 	</div>
-
-	<div class="page">
-
+	
+	<div class="config config--device">
+		<ul>
+			<li><a href="core-feature.html">Feature</a></li>
+			<li><a href="core-smart-portrait.html">Smart</a></li>
+			<li><a href="core-tablet-portrait.html">Tablet</a></li>
+			<li><a class="active" href="core-desktop.html">Desktop</a></li>
+		</ul>
+	</div>
+	
+	<div class="page page--desktop">
+		<div class="mrn" id="js-mrn" data-device="desktop">
+			<!-- ... -->
+		</div>
 	</div>
 	
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
