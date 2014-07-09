@@ -8,6 +8,10 @@
 	var demo = {
 
 		config: {
+			all: {
+				minItems: 4,
+				maxItems: 8
+			},
 			feature: {
 				numItems: 4
 			},
@@ -23,24 +27,39 @@
 		},
 
 		init: function() {
-			this.device   = $('#js-mrn').data('device');
-			this.$config  = $('#js-config');
-			this.numItems = 0;
+			demo.device   = $('#js-mrn').data('device');
+			demo.$config  = $('#js-config');
+			demo.numItems = 0;
+			demo.itemData = {};
+			demo.tpl      = '';
 
-			this.bindEvts();
+			demo.bindEvts();
 
 			// Load the correct number of items in to the
 			// module using device configuration values.
-			this.loadItems( this.config[this.device].numItems );
+			demo.loadItems( demo.config[ demo.device ].numItems );
 		},
 
 		bindEvts: function() {
-			$('.add', this.$config).on('click', $.proxy(this.addItem, this));
-			$('.remove', this.$config).on('click', $.proxy(this.removeItem, this));
+			$('.add', demo.$config).on('click', demo.addItem);
+			$('.remove', demo.$config).on('click', demo.removeItem);
+
+			$(w.document).on('keyup', function(e) {
+				var key = {
+					"-": 109,
+					"+": 107
+				};
+
+				if(e.keyCode === key['-']) {
+					demo.removeItem(e);
+				} else if(e.keyCode === key['+']) {
+					demo.addItem(e);
+				}
+			});
 		},
 
 		loadItems: function(numItems) {
-			this.numItems = numItems;
+			demo.numItems = numItems;
 
 			$.when(
 
@@ -49,29 +68,40 @@
 
 			).then(function(itemData, tpl) {
 
-				// To fix 'this'
-				// var rendered = this.renderNumItems(numItems, tpl, itemData);
-				var rendered = M.render(tpl[0], itemData[0]);
-				$('#js-mrn').html(rendered);
+				demo.itemData = itemData[0];
+				demo.tpl      = tpl[0];
 
+				demo.render();
 			});
 		},
 
-		renderNumItems: function(numItems, tpl, itemData) {
-			var rendered = M.render(tpl[0], itemData[0]);
-			// ...Set itemData to numItems.
+		render: function() {
+			var itemDataSliced = {
+				carouselItems: demo.itemData.carouselItems.slice(0, demo.numItems)
+			};
 
-			return rendered;
+			var rendered = M.render(demo.tpl, itemDataSliced);
+			$('#js-mrn').html(rendered);
 		},
 
 		addItem: function(e) {
 			e.preventDefault();
-			// ...
+
+			if(demo.numItems < demo.config.all.maxItems) {
+				demo.numItems++;
+				demo.render();
+			}
+			
 		},
 
 		removeItem: function(e) {
 			e.preventDefault();
-			// ...
+
+			if(demo.numItems > demo.config.all.minItems) {
+				demo.numItems--;
+				demo.render();
+			}
+			
 		}
 
 	};
@@ -80,4 +110,5 @@
 	$(function() {
 		demo.init();
 	});
+
 })(this, jQuery, Mustache);
