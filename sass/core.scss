@@ -1,6 +1,9 @@
 // core.scss
 //
 
+$brand:      #CC0101;
+$grey:       #767676;
+
 // Utility
 //
 
@@ -51,6 +54,9 @@ h1 {
 h2 {
 	font-size: 26px;
 }
+img {
+	max-width: 100%;	
+}
 
 // Page
 //
@@ -83,6 +89,7 @@ h2 {
 	
 	position: absolute;
 		top: 0; right: 32px;
+	z-index: 20;
 
 	ul {
 		@extend .nav;
@@ -116,6 +123,7 @@ h2 {
 }
 	.config--device {
 		left: 32px;
+		z-index: 10;
 		
 		a {
 			font-size: 16px;
@@ -131,9 +139,51 @@ h2 {
 	
 	ul {
 		@extend .nav;
+		
+		margin-bottom: 0;
+		
+		> li {
+			// Width rules
+			// per device
+		}
+	}
+	img {
+		display: block;
+	}
+	p {
+		font-weight: bold;
 	}
 }
-	.mrn__title {}
+	.mrn__title {
+		line-height: 1;
+		margin: 0;
+	}
+	.item__caption {
+		// border-left: 1px solid $grey;
+		height: 94px;
+		// padding: 12px 8px 0;
+
+		p {
+			margin-top: 0;
+			margin-bottom: 8px;
+			line-height: 1.1;
+		}
+	}
+	.item__footer {
+		@extend .nav;
+		
+		color: $grey;
+		font-size: 14px;
+		line-height: 1.2;
+	}
+		.item__timestamp {
+			background: url('../img/timestamp-separator.gif') right center no-repeat;
+			margin-right: 8px;
+			padding-right: 8px;
+		}
+		.item__region {
+			color: $brand;
+		}
 
 // Components
 //
