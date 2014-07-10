@@ -10,7 +10,7 @@
 		config: {
 			all: {
 				minItems: 4,
-				maxItems: 8
+				maxItems: 6
 			},
 			feature: {
 				numItems: 4
@@ -22,7 +22,7 @@
 				numItems: 6
 			},
 			desktop: {
-				numItems: 8
+				numItems: 6
 			}
 		},
 
