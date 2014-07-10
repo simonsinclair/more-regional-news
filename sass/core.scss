@@ -45,7 +45,8 @@ a {
 	text-decoration: none;
 }
 h1,
-h2 {
+h2,
+h3 {
 	font-weight: normal;
 }
 h1 {
@@ -245,6 +246,41 @@ img {
 		}
 		.item__caption {
 			height: 116px;
+		}
+	}
+}
+
+// List format
+.page--list {
+	
+	&.page--tablet-portrait {
+
+		.mrn {
+			
+			> ul {
+				margin-right: -8px;
+				margin-left: -8px;
+			}
+			
+			.item {
+				@extend .clearfix;
+				
+				margin-top: 0;
+				padding-left: 8px;
+				padding-right: 8px;
+				width: 50%;
+			}
+
+			img {
+				float: left;
+				width: 50%;
+			}
+			.item__caption {
+				float: left;
+				height: 124px;
+				padding: 0 0 0 8px;
+				width: 50%;
+			}
 		}
 	}
 }
