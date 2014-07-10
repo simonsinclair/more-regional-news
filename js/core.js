@@ -16,13 +16,13 @@
 				numItems: 4
 			},
 			smart: {
-				numItems: 6
+				numItems: 5
 			},
 			tablet: {
-				numItems: 6
+				numItems: 5
 			},
 			desktop: {
-				numItems: 6
+				numItems: 5
 			}
 		},
 
