@@ -64,7 +64,7 @@ img {
 .page {
 	background-color: #FFF;
 	margin: 0 auto;
-	padding: 128px 8px 0;
+	padding: 64px 8px;
 	max-width: 960px + 8;
 }
 	.page--feature {
@@ -141,10 +141,12 @@ img {
 		@extend .nav;
 		
 		margin-bottom: 0;
+	}
+	.item {
+		margin-top: 32px;
 		
-		> li {
-			// Width rules
-			// per device
+		&:first-child {
+			margin-top: 0;
 		}
 	}
 	img {
@@ -159,9 +161,7 @@ img {
 		margin: 0;
 	}
 	.item__caption {
-		// border-left: 1px solid $grey;
-		height: 94px;
-		// padding: 12px 8px 0;
+		padding-top: 12px;
 
 		p {
 			margin-top: 0;
@@ -184,6 +184,70 @@ img {
 		.item__region {
 			color: $brand;
 		}
+
+// Per-device
+.page--smart-portrait {
+	
+	.mrn {
+		
+		.item {
+			margin-top: 0;
+			width: 50%;
+			
+			&:nth-child(odd) {
+				padding-right: 4px;
+			}
+			&:nth-child(even) {
+				padding-left: 4px;
+			}
+		}
+		.item__caption {
+			height: 132px;
+		}
+	}
+}
+
+.page--tablet-portrait {
+	
+	.mrn {
+		
+		> ul {
+			margin-right: -8px;
+			margin-left: -8px;
+		}
+
+		.item {
+			margin-top: 0;
+			padding-left: 8px;
+			padding-right: 8px;
+			width: 33.333%;
+		}
+		.item__caption {
+			height: 108px;
+		}
+	}
+}
+
+.page--desktop {
+	
+	.mrn {
+		
+		> ul {
+			margin-right: -8px;
+			margin-left: -8px;
+		}
+
+		.item {
+			margin-top: 0;
+			padding-left: 8px;
+			padding-right: 8px;
+			width: 25%;
+		}
+		.item__caption {
+			height: 116px;
+		}
+	}
+}
 
 // Components
 //
