@@ -253,6 +253,29 @@ img {
 // List format
 .page--list {
 	
+	// Feature
+	&.page--feature {
+
+		.mrn {
+			
+			> ul {}
+			
+			.item {
+				@extend .clearfix;
+				
+				margin-top: 0;
+			}
+
+			img {
+				display: none;
+			}
+			.item__caption {
+				padding: 0 0 32px;
+			}
+		}
+	}
+
+	// Tablet
 	&.page--tablet-portrait {
 
 		.mrn {
