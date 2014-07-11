@@ -47,12 +47,14 @@
 			$(w.document).on('keyup', function(e) {
 				var key = {
 					"-": 109,
-					"+": 107
+					"DOWN": 40,
+					"+": 107,
+					"UP": 38
 				};
-
-				if(e.keyCode === key['-']) {
+				console.log(e.keyCode);
+				if(e.keyCode === key['-'] || e.keyCode === key['DOWN']) {
 					demo.removeItem(e);
-				} else if(e.keyCode === key['+']) {
+				} else if(e.keyCode === key['+'] || e.keyCode === key['UP']) {
 					demo.addItem(e);
 				}
 			});
