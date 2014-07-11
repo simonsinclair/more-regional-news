@@ -51,7 +51,7 @@
 					"+": 107,
 					"UP": 38
 				};
-				console.log(e.keyCode);
+				
 				if(e.keyCode === key['-'] || e.keyCode === key['DOWN']) {
 					demo.removeItem(e);
 				} else if(e.keyCode === key['+'] || e.keyCode === key['UP']) {
