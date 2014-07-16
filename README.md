@@ -2,5 +2,3 @@
 ====================
 
 A page-terminating carousel component for Connected Stories.
-
-http://simonsinclair.github.io/more-regional-news/
